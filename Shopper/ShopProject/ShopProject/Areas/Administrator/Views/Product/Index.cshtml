@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ShopProject.Areas.Administrator.Models.Product>
+@*@model PagedList.IPagedList<ShopProject.Areas.Administrator.Models.Product>
+    @using PagedList.Mvc;*@
+
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+@{
+    ShopProject.Repository.ProductDAO proDAO = new ShopProject.Repository.ProductDAO();
+}
+
+<h2>Sản phẩm</h2>
+<div class="text-warning">
+    @ViewBag.ProError
+</div>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "Product")" role="button">Tạo sản phẩm mới</a>
+            <div class="form-group input-group navbar-right">
+                @using (Ajax.BeginForm("Index", "Product", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+                {
+                    <input type="search" name="name" class="form-control" style="width:300px" placeholder="Nhập tên sản phẩm..." />
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                }
+            </div>
+        </div>
+        <div class="panel-body" style="width:100%;height:500px;overflow:auto;">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Hãng sản xuất</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Kích cỡ</th>
+                            <th>Đơn giá</th>
+                            <th>Chiết khấu (%)</th>
+                            <th>Hình ảnh</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.proID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ProductType.typeName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Producer.pdcName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.proName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.proSize)</td>
+                                <td>@proDAO.formatNumber(item.proPrice)</td>
+                                <td>@Html.DisplayFor(modelItem => item.proDiscount)</td>
+                                <td><img src="@item.proPhoto" width="50" height="50" /></td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Product", new { id = item.proID })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                    <a href="@Url.Action("Details", "Product", new { id = item.proID })"><i class="fa fa-list-alt fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá sản phẩm này?')" href="@Url.Action("Delete", "Product", new { id = item.proID })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

@@ -1,0 +1,99 @@
+﻿@model ShopProject.Areas.Administrator.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.proID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producer.pdcName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producer.pdcName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType.typeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.typeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proDiscount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proUpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proUpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.proID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

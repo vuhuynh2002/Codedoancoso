@@ -1,0 +1,56 @@
+﻿@model ShopProject.Areas.Administrator.Models.Producer
+
+@{
+    ViewBag.Title = "Tạo hãng mới";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tạo hãng mới</h2>
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "Producer")
+</div>
+@using (Html.BeginForm("Create", "Producer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="text-success">
+            @ViewBag.CreatePdcError
+        </div>
+        <div class="form-group col-lg-5">
+            <label>Tên hãng</label>
+            @Html.EditorFor(model => model.pdcName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên hãng..." } })
+            <div class="text-danger">@Html.ValidationMessageFor(model => model.pdcName)</div>
+
+            <label>Số điện thoại</label>
+            @Html.EditorFor(model => model.pdcPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập số điện thoại..." } })
+            <div class="text-danger">@Html.ValidationMessageFor(model => model.pdcPhone)</div>
+
+            <label>Email</label>
+            @Html.EditorFor(model => model.pdcEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập email..." } })
+            <div class="text-danger">@Html.ValidationMessageFor(model => model.pdcEmail)</div>
+
+            <label>Địa chỉ</label>
+            @Html.TextAreaFor(model => model.pdcAddress, new { @class = "form-control", @placeholder = "Nhập địa chỉ..." })
+            <div class="text-danger">@Html.ValidationMessageFor(model => model.pdcAddress)</div>
+
+            <label>Thông tin</label>
+            @Html.TextAreaFor(model => model.pdcInfo, new { @class = "form-control", @placeholder = "Nhập thông tin hãng..." })
+            <div class="text-danger">@Html.ValidationMessageFor(model => model.pdcInfo)</div>
+
+            <label>Hình ảnh</label>
+            <input type="file" id="file" name="file" />
+            <div class="text-danger">@ViewBag.HinhAnh</div>
+            <br />
+            <input type="submit" value="Tạo mới" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<ShopProject.Areas.Administrator.Models.OrderDetail>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đơn hàng</h2>
+
+
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>
+            Mã hóa đơn
+        </th>
+        <th>
+            Mã sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Số tiền
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.orderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ordtsQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ordtsThanhTien)
+            </td>
+            
+            
+        </tr>
+    }
+
+</table>

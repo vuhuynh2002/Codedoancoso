@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ShopProject.Areas.Administrator.Models.Category>
+@{
+    ViewBag.Title = "Danh mục";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh mục</h2>
+<div class="text-warning">
+    @ViewBag.CateError
+</div>
+<hr />
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "Category")" role="button">Tạo danh mục mới</a>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên danh mục</th>
+                            <th>Hình ảnh</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.cateID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cateName)</td>
+                                <td><img src="@item.catePhoto" width="50" height="50" /></td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Category", new { id = item.cateID })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá danh mục này?')" href="@Url.Action("Delete", "Category", new { id = item.cateID })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AdminContext-Web.config Connection String" description="AdminContext Connection String used in web.config by the application to access the database." defaultValue="data source=.;initial catalog=Shopper;user id=sa;password=123;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Project\\Web\\Shopper\\ShopProject\\ShopProject\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AdminContext']/@connectionString" />
+  </parameter>
+  <parameter name="UserContext-Web.config Connection String" description="UserContext Connection String used in web.config by the application to access the database." defaultValue="data source=.;initial catalog=Shopper;user id=sa;password=123;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Project\\Web\\Shopper\\ShopProject\\ShopProject\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='UserContext']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,279 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link href="~/Areas/Shopper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- MetisMenu CSS -->
+    <link href="~/Areas/Shopper/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Areas/Shopper/Content/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/Areas/Shopper/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Areas/Shopper/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Areas/Shopper/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/Areas/Shopper/Content/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="~/Areas/Shopper/Content/css/stytecss.css" rel='stylesheet' type='text/css' />
+    <link href="~/Areas/Shopper/Content/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- js -->
+    <script src="~/Areas/Shopper/Content/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Areas/Shopper/Content/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Areas/Shopper/Content/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+
+    </script>
+    <link href="~/Areas/Shopper/Content/fontawesome-free-6.4.0-web/css/all.css" rel="stylesheet" />
+    <link href="~/Areas/Shopper/Content/fontawesome-free-6.4.0-web/css/all.min.css" rel="stylesheet" />
+    <link href="~/Areas/Shopper/Content/fontawesome-free-6.4.0-web/css/fontawesome.css"rel="stylesheet" />
+    <link href="~/Areas/Shopper/Content/fontawesome-free-6.4.0-web/css/fontawesome.min.css" rel="stylesheet"/>
+    
+    <!-- start-smoth-scrolling -->
+    <link href="~/Areas/Shopper/Content/css/font-awesome.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Areas/Shopper/Content/css/stytecss.css"
+    <!--- start-rate---->
+    <script src="~/Areas/Shopper/Content/js/jstarbox.js"></script>
+    <link rel="stylesheet" href="~/Areas/Shopper/Content/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+    <!---//End-rate---->
+   @* <style>
+        #style-6::-webkit-scrollbar-track
+            {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                background-color: #F5F5F5;
+            }
+
+            #style-6::-webkit-scrollbar
+            {
+                width: 10px;
+                background-color: #F5F5F5;
+            }
+
+            #style-6::-webkit-scrollbar-thumb
+            {
+                background-color: #F90;
+                background-image: -webkit-linear-gradient(45deg,
+                                                          rgba(255, 255, 255, .2) 25%,
+                                                          transparent 25%,
+                                                          transparent 50%,
+                                                          rgba(255, 255, 255, .2) 50%,
+                                                          rgba(255, 255, 255, .2) 75%,Font
+                                                          transparent 75%,
+                                                          transparent)
+            }
+    </style>*@
+</head>
+<body id="style-6">
+   
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="title">
+                    <h1><a href="@Url.Action("Index", "Home")">OUUE<span>VIETNAM FASHION</span></a></h1>
+                </div>
+                <div class="icons">
+                  <a href=""><i class="fa-solid fa-bag-shopping"></i></a>  
+                   <a href=""><i class="fa-solid fa-user"></i></a> 
+                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+            </div>
+            <div class="head-t">
+                <ul class="card">
+                    <li><a href="@Url.Action("Login","Home")"><i class="fa fa-user" aria-hidden="true"></i>Đăng nhập</a></li>
+                    <li><a href="@Url.Action("Register","Home")"><i class="fa fa-arrow-right" aria-hidden="true"></i>Đăng ký</a></li>
+                    <li><a href="~/Areas/Shopper/Controllers/HomeController.cs"></a><strong>@ViewBag.Email</strong></li>
+
+                </ul>
+            </div>
+           @*<div class="header-ri">
+        <ul class="social-top">
+            <li><a href="#" target="_blank" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+            <li><a href="#" class="icon pinterest"><i class="fa fa-youtube-play" aria-hidden="true"></i><span></span></a></li>
+        </ul>
+    </div>*@ 
+            <div class="nav-top">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header nav_2">
+                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs" >
+                        <ul class="nav navbar-nav " style="text-transform:uppercase;">
+                            <li class="menu "><a href="@Url.Action("Index", "Home")" class="hyper" style="color:#ffffff;"><span>Trang chủ</span></a></li>
+                            @{
+                                ShopProject.Areas.Shopper.Models.UserContext db = new ShopProject.Areas.Shopper.Models.UserContext();
+                                foreach (var itemCate in db.Categories)
+                                {
+                                    <li class="dropdown ">
+                                        <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" style="color:#ffffff;"><span>@itemCate.cateName<b class="caret"></b></span></a>
+                                        <ul class="dropdown-menu">
+                                            <div class="col-sm-12">
+                                                <ul class="multi-column-dropdown">
+                                                    @foreach (var itemPt in db.ProductTypes.Where(c => c.cateID == itemCate.cateID))
+                                                    {
+                                                        <li><a href="@Url.Action("ProductsByProType", "Products", new { id = itemPt.typeID, page = 1 })"><i class="fa fa-angle-right" aria-hidden="true"></i>@itemPt.typeName</a></li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                          @* <div class="col-sm-12">
+        <ul class="multi-column-dropdown">
+            <li>
+                <img src="@itemCate.catePhoto" width="100" height="50" />
+            </li>
+        </ul>
+    </div>*@ 
+                                        </ul>
+                                    </li>
+                                }
+                            }
+                            <li class="dropdown ">
+                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" style="color:#ffffff;"><span>Hãng sản xuất<b class="caret"></b></span></a>
+                                <ul class="dropdown-menu">
+                                    <div class="col-sm-12">
+                                        <ul class="multi-column-dropdown">
+                                            @foreach (var itemPdc in db.Producers)
+                                            {
+                                                <li><a href="@Url.Action("ProductsByPdc", "Products", new { id = itemPdc.pdcID, page = 1 })"><img src="@itemPdc.pdcPhoto" width="20" height="20" /> @itemPdc.pdcName</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                    
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("HoaDon","ThanhToan")" class="hyper " style="color:#ffffff;"><span>Phản hồi</span></a></li>
+                          
+                        </ul>
+                    </div>
+                </nav>
+                <div class="cart">
+                    @{
+                        List<ShopProject.Areas.Shopper.Models.CartItem> gio = Session["giohang"] as List<ShopProject.Areas.Shopper.Models.CartItem>;
+                        if (gio == null || gio.Count == 0)
+                        {
+                            <a href="@Url.Action("Index","GioHang")"><span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge">0</span></span></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Index","GioHang")"><span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge">@gio.Count</span></span></a>
+                        }
+}
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .header{
+            margin-top:auto;
+            font-weight:bold;
+        }
+       
+    </style>
+
+
+    @RenderBody()
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3 footer-grid">
+                <h3>Giới thiệu</h3>
+                <p>
+                    Cửa hàng thời trang.
+                </p>
+            </div>
+            <div class="col-md-3 footer-grid ">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                    @foreach (var itemCate in db.Categories)
+                    {
+                        <li><a href="#">@itemCate.cateName</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grid">
+                <h3>Tài khoản</h3>
+                <ul>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                    <li><a href="register.html">Đăng ký</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="footer-bottom">
+                <h2><a href="index.html">OUUE<span>VIETNAM FASHION</span></a></h2>
+                <ul class="social-fo">
+                    <li><a href="#" target="_blank" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class=" twi"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class=" pin"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class=" dri"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class=" address">
+                    <div class="col-md-4 fo-grid1">
+                        <p><i class="fa fa-home" aria-hidden="true"></i>HO CHI MINH CITY - VIETNAM.</p>
+                    </div>
+                    <div class="col-md-4 fo-grid1">
+                        <p><i class="fa fa-phone" aria-hidden="true"></i>0228647777</p>
+                    </div>
+                    <div class="col-md-4 fo-grid1">
+                        <p><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>OUUE@gmail.com</a></p>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <div class="copy-right">
+                <p> &copy; 2023 FashionVN. All Rights Reserved </p>
+            </div>
+        </div>
+    </div>
+    <!-- //footer-->
+    <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+    <script src="~/Areas/Shopper/Content/js/bootstrap.js"></script>
+    <!-- for bootstrap working -->
+</body>
+</html>

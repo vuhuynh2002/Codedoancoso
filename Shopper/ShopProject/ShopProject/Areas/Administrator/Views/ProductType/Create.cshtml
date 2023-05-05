@@ -1,0 +1,37 @@
+﻿@model ShopProject.Areas.Administrator.Models.ProductType
+
+@{
+    ViewBag.Title = "Tạo loại mới";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+<h2>Tạo loại mới</h2>
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "ProductType")
+</div>
+@using (Html.BeginForm("Create", "ProductType", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="text-success">
+            @ViewBag.CreateTypeError
+        </div>
+        <div class="form-group col-lg-5">
+            <label>Tên danh mục</label>
+            @Html.DropDownListFor(model => model.cateID, ViewBag.cateListCreate as SelectList, new { @class = "form-control" })
+            <label>Tên loại</label>
+            @Html.EditorFor(model => model.typeName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên loại..." } })
+            <div class="text-danger">@Html.ValidationMessageFor(model => model.typeName)</div>
+            <br />
+            <input type="submit" value="Tạo mới" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

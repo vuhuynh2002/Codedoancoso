@@ -1,0 +1,72 @@
+﻿
+@model PagedList.IPagedList<ShopProject.Areas.Administrator.Models.Product>
+
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+    
+}
+
+<!DOCTYPE html>
+
+<p>
+    <button class="btn-default">@Html.ActionLink("Product", "Create")</button>
+</p>
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Giá tiền
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Giảm giá
+        </th>
+        <th>
+            Hãng sản xuất
+        </th>
+        <th>
+            Loại
+        </th>
+    </tr>
+@*
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.proName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proDiscount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producer.pdcName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductType.typeName)
+            </td>
+
+
+            <td><img src="@item.proPhoto" width="50" height="50" /></td>
+
+
+
+        </tr>
+    }*@
+
+</table>

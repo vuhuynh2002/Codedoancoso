@@ -1,0 +1,38 @@
+﻿@model ShopProject.Areas.Administrator.Models.ProductType
+
+@{
+    ViewBag.Title = "Cập nhật loại";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cập nhật loại</h2>
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "ProductType")
+</div>
+@using (Html.BeginForm("Edit", "ProductType", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.typeID)
+        <div class="text-success">
+            @ViewBag.EditTypeError
+        </div>
+        <div class="form-group col-lg-5">
+            <label>Tên danh mục</label>
+            @Html.DropDownListFor(model => model.cateID, ViewBag.cateListEdit as SelectList, new { @class = "form-control" })
+            <label>Tên loại</label>
+            @Html.EditorFor(model => model.typeName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên loại..." } })
+            <div class="text-danger">@Html.ValidationMessageFor(model => model.typeName)</div>
+            <br />
+            <input type="submit" value="Cập nhật" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,96 @@
+﻿@model PagedList.IPagedList<ShopProject.Areas.Shopper.Models.Product>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Areas/Shopper/Views/Shared/_LayoutShop.cshtml";
+}
+@{
+    ShopProject.Repository.ProductDAO proDAO = new ShopProject.Repository.ProductDAO();
+    ShopProject.Areas.Shopper.Models.UserContext db = new ShopProject.Areas.Shopper.Models.UserContext();
+}
+<!--content-->
+<div class="content-top ">
+    <div class="container ">
+        <div class="spec ">
+            <h3>Hãng sản xuất @ViewBag.pdcName</h3>
+            
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("ProductsByPdc", "Products", new { page }))
+        <div class="tab-head ">
+            <div class=" tab-content tab-content-t ">
+                <div class="tab-pane active text-style" id="tab1">
+                    <div class=" con-w3l">
+                       @foreach (var item in Model)
+                       {
+                           int newPrice = Int32.Parse(item.proPrice) - ((Int32.Parse(item.proPrice) * item.proDiscount.Value) / 100);
+                        <div class="col-md-3 m-wthree" style="margin-bottom:30px;">
+                            <div class="col-m">
+                                <a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })" class="offer-img">
+                                    <img src="@item.proPhoto" width="150" height="150" alt="@item.proPhoto" style="position:absolute;width:100%;height:auto;">
+                                    @if (Int32.Parse(item.proPrice) > newPrice)
+                                    {
+                                        <div class="offer"><p><span>Giảm @item.proDiscount %</span></p></div>
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                </a>
+                                <div class="mid-1" style="padding:24em 0 0;">
+                                    <div class="women">
+                                        @if (item.proName.Length > 20)
+                                        {
+                                            <h6><a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })" data-toggle="tooltip" title="@item.proName">@item.proName.Substring(0, 19) . . .</a></h6>
+                                        }
+                                        else
+                                        {
+                                            <h6><a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })">@item.proName</a></h6>
+                                        }
+                                    </div>
+                                    (Size: @item.proSize)
+                                    <div class="mid-2">
+                                        <p><label>@proDAO.formatNumber(item.proPrice) VNĐ</label><em class="item_price">@proDAO.formatNumber(newPrice.ToString()) VNĐ</em></p>
+                                        <div class="clearfix"></div>
+                                       @* <div class="block">
+        @if (db.Rates.Find(item.proID) != null)
+        {
+            for (int i = 0; i < db.Rates.Find(item.proID).rateStar; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:rgb(255, 172, 0);" />
+            }
+            for (int i = 0; i < 5 - db.Rates.Find(item.proID).rateStar; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:#b0b0b0" />
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:#b0b0b0" />
+            }
+        }
+    </div>*@
+                                        <div>
+                                            <a href="#"><img src="@item.Producer.pdcPhoto" width="20" height="20" /> @item.Producer.pdcName</a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="add">
+                                        <a class="btn btn-success" href="@Url.Action("ThemVaoGio", "GioHang", new { SanPhamID = item.proID })"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       }
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

@@ -1,0 +1,470 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Areas/Shopper/Views/Shared/_LayoutShop.cshtml";
+}
+@{
+    ShopProject.Repository.ProductDAO proDAO = new ShopProject.Repository.ProductDAO();
+    ShopProject.Areas.Shopper.Models.UserContext db = new ShopProject.Areas.Shopper.Models.UserContext();
+}
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+
+
+<div data-vide-bg="video/video" style="position: relative;">
+    <div >
+        <video autoplay="autoplay" loop="loop" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%);
+             visibility: visible; width: 100%; height: auto;">
+            <source src="~/Areas/Shopper/Content/Video/JENNIE for the CHANEL 22 Bag Campaign — CHANEL Handbags.mp4" type="video/mp4">
+            <source src="~/video/video.gif" type="image/gif" />
+        </video>
+    </div>
+   @* <div style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-size: cover;">
+        <video autoplay="autoplay" loop="loop" style="height:auto; width:100%" >
+            <source src="~/Areas/Shopper/Content/Video/JENNIE for the CHANEL 22 Bag Campaign — CHANEL Handbags.mp4" type="audio/mp4"/>
+            <source src="~/video/video.gif" type="image/gif"/>
+        </video>
+    </div>*@
+    
+   <div class="container">
+        <div class="banner-info">
+            <div class="search-form">
+            @using (Ajax.BeginForm("SearchByName", "Products", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+
+            {
+                <input type="text" style="background-color:rgba(145, 0, 255, 0);" placeholder="Tìm kiếm..." name="name">
+                <button type="submit" class="btn btn-default" style="background-color:rgba(0, 0, 255, 0);"><i class=" fa fa-search"></i></button>
+            }
+        </div>
+    </div>
+    </div>
+</div>
+
+
+@*
+    <div style="text-align:center">
+        <img  src="~/Areas/Shopper/Content/Img/HomeFashi/" style="width:80%;height:auto;margin-top:10px;  "/>
+    </div>*@
+<div class="chanel" >
+    <img src="~/Areas/Shopper/Content/Img/HomeFashi/10177875804190.jpg" style="width:100% ;" />
+    <div class="chanel-content"  >
+  
+        <h2> TÚI CHANEL 22</h2>
+        <p>THỜI TRANG </p>
+        <a href="#">TÌM HIỂU THÊM </a>
+       
+    </div>
+</div>
+<div class="chanel">
+    <img src="~/Areas/Shopper/Content/Img/HomeFashi/FSH-1673542053400-header.jpg" style="width:100%" />
+    <div class="chanel-content">
+       
+  
+        <h2>SHOW DIỄN 2023</h2>
+        <p>THỜI TRANG </p>
+        <a href="#">TÌM HIỂU THÊM </a>
+
+    </div>
+</div>
+<div class="chanel">
+    <img src="~/Areas/Shopper/Content/Img/HomeFashi/10125806895134 (1).jpg" style="width:100%" />
+    <div class="chanel-content">
+    
+ 
+        <h2> THU ĐÔNG 2023</h2>
+        <p>THỜI TRANG </p>
+        <a href="#">TÌM HIỂU THÊM </a>
+
+    </div>
+</div>
+<div class="chanel">
+    <img src="~/Areas/Shopper/Content/Img/HomeFashi/10072190615582.jpg" style="width:100%" />
+    <div class="chanel-content">
+      
+        <h2>TRANG SỨC COCO </h2>
+        <p>THỜI TRANG </p>
+        <a href="#">TÌM HIỂU THÊM </a>
+
+    </div>
+</div>
+
+@*
+    <div style="bottom:-100px">
+        <div class="text-content" style="position:absolute; text-align: center;
+        width: 100%;line-height: 2;font-weight:700;bottom:-985px;font-size:1.875rem;color:#ffffff">
+
+            <div class="text-description">THỜI TRANG</div>
+            <h1 class="text-heading">THU ĐÔNG 2023/24</h1>
+
+        </div>
+        <div class="add" style="position:absolute; text-align: center;
+        width: 100%;">
+            <a class="btn btn-success" style="margin-top:520px ; background-color:#ffffff; color:#000000;font-weight:300;font-size:inherit;border-color:#ffffff;width:157px;height:50px;text-align:center;line-height:39px" >   TÌM HIỂU THÊM </a>
+        </div>
+        <img src="~/Areas/Shopper/Content/Img/HomeFashi/FSH-1673542053400-header.jpg" style="width:100%" />
+
+    </div>
+
+    <div>
+        <div class="text-content" style="position:absolute; text-align: center;
+        width: 100%;line-height: 2;font-weight:700;bottom:-985px;font-size:1.875rem;color:#ffffff">
+
+            <div class="text-description">THỜI TRANG</div>
+            <h1 class="text-heading">THU ĐÔNG 2023/24</h1>
+
+        </div>
+        <div class="add" style="position:absolute; text-align: center;
+        width: 100%;">
+            <a class="btn btn-success" style="margin-top:520px ; background-color:#ffffff; color:#000000;font-weight:300;font-size:inherit;border-color:#ffffff;width:157px;height:50px;text-align:center;line-height:39px">   TÌM HIỂU THÊM </a>
+        </div>
+        <img src="~/Areas/Shopper/Content/Img/HomeFashi/10125806895134 (1).jpg" style="width:100%" />
+    </div>
+
+    <div>
+        <div class="text-content" style="position:absolute; text-align: center;
+        width: 100%;line-height: 2;font-weight:700;bottom:-985px;font-size:1.875rem;color:#ffffff">
+            <div class="text-description">THỜI TRANG</div>
+            <h1 class="text-heading">THU ĐÔNG 2023/24</h1>
+        </div>
+        <div class="add" style="position:absolute; text-align: center;
+        width: 100%;">
+            <a class="btn btn-success" style="margin-top:520px ; background-color:#ffffff; color:#000000;font-weight:300;font-size:inherit;border-color:#ffffff;width:157px;height:50px;text-align:center;line-height:39px">   TÌM HIỂU THÊM </a>
+        </div>
+        <img src="~/Areas/Shopper/Content/Img/HomeFashi/10072190615582.jpg" style="width:100%" />
+
+    </div>
+
+    <div class="da">
+        <img src="~/Areas/Shopper/Content/Img/HomeFashi/10150072188958.jpg" />
+    </div>*@
+@*<div data-vide-bg="video/video" style="position: relative;">
+    <div style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; background-size: cover;
+        background-repeat: no-repeat; background-position: 50% 50%; background-image: none;">
+        <video autoplay="autoplay" loop="loop" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%);
+             visibility: visible; width: 100%; height: auto;">
+            <source src="~/Areas/Shopper/Content/Video/JENNIE for the CHANEL 22 Bag Campaign — CHANEL Handbags.mp4" type="video/mp4">
+            <source src="~/video/video.gif" type="image/gif" />
+        </video>
+    </div>*/*@
+
+<div class="content-top ">
+    <div class="container ">@*
+    <ul class="htmlcontent-item-1 row clearfix" style="list-style-type:none;">
+        <li class="htmlcontent-item-1 col-sm-3">
+            <a href="@Url.Action("ProductsBytypeName", "Products", new { name="", page=1 })" class="hoverSlideHome" title="">
+                <img src="~/Areas/Shopper/Content/Img/HomeFashi/FSH-1673542053400-header.jpg" class="item-img " title="" alt="" width="270" height="400" />
+            </a>
+        </li>
+        <li class="htmlcontent-item-2 col-sm-3">
+            <a href="@Url.Action("ProductsBytypeName", "Products", new { name="", page=1 })" class="hoverSlideHome" title="">
+                <img src="~/Areas/Shopper/Content/Img/HomeFashi/ECOM_BANNER_580X910pX.jpg" style="margin-left:147px;"  class="item-img " title="" alt="" width="270" height="400">
+            </a>
+        </li>
+        <li class="htmlcontent-item-3 col-sm-3">
+        </li>
+        <li class="htmlcontent-item-4 col-sm-3">
+            <a href="@Url.Action("ProductsBytypeName", "Products", new { name="", page=1 })" class="hoverSlideHome" title="">
+                <img src="~/Areas/Shopper/Content/Img/HomeFashi/Ecom_Mar_580x910_1.jpg" class="item-img " title="" alt="" width="270" height="400">
+            </a>
+        </li>
+    </ul>*@
+        <style>
+            ul{
+                width:100%;
+            }
+        </style>
+        <div class="spec ">
+            
+            <h3><a href="@Url.Action("ProductsBestNew", "Products", new { title="Thời trang mới nhất", page=1 })" style="text-decoration:none;">Thời trang mới nhất</a></h3>
+          @*  <div class="ser-t">
+        <b></b>
+        <span><i></i></span>
+        <b class="line"></b>
+    </div>*@
+        </div>
+        <div class="tab-head ">
+            <div class=" tab-content tab-content-t ">
+                <div class="tab-pane active text-style" id="tab1">
+                    <div class=" con-w3l" style="width:100%; height:500px;">
+                        @{int qtt = 0;}
+                        @foreach (var item in db.Products.SqlQuery("SELECT * FROM Products ORDER BY proUpdateDate DESC"))
+                        {
+                            qtt++;
+                            if (qtt > 4)
+                            {
+                                break;
+                            }
+                            int newPrice = Int32.Parse(item.proPrice) - ((Int32.Parse(item.proPrice) * item.proDiscount.Value) / 100);
+                            <div class="col-md-3 m-wthree" style="margin-bottom:30px;">
+                                <div class="col-m">
+                                    <a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })" class="offer-img">
+                                        <img src="@item.proPhoto" width="150" height="150" alt="@item.proPhoto" style="position:absolute;width:100%;height:auto;">
+                                        @if (Int32.Parse(item.proPrice) > newPrice)
+                                        {
+                                            <div class="offer"><p><span>Giảm @item.proDiscount %</span></p></div>
+                                        }
+                                        else
+                                        {
+
+                                        }
+                                    </a>
+                                    <div class="mid-1" style="padding:24em 0 0;">
+                                        <div class="women">
+                                            @if (item.proName.Length > 20)
+                                            {
+                                                <h6><a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })" data-toggle="tooltip" title="@item.proName">@item.proName.Substring(0, 19) . . .</a></h6>
+                                            }
+                                            else
+                                            {
+                                                <h6><a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })">@item.proName</a></h6>
+                                            }
+                                        </div>
+                                        (Size: @item.proSize)
+                                        <div class="mid-2">
+                                            <p><label>@proDAO.formatNumber(item.proPrice) VNĐ</label><em class="item_price">@proDAO.formatNumber(newPrice.ToString()) VNĐ</em></p>
+                                            <div class="clearfix"></div>
+                                           @*<div class="block">
+        @if (db.Rates.Find(item.proID) != null)
+        {
+            for (int i = 0; i < db.Rates.Find(item.proID).rateStar; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:rgb(255, 172, 0);" />
+            }
+            for (int i = 0; i < 5 - db.Rates.Find(item.proID).rateStar; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:#b0b0b0" />
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:#b0b0b0" />
+            }
+        }
+    </div>*@ 
+                                            <div>
+                                                <a href="#"><img src="@item.Producer.pdcPhoto" width="20" height="20" /> @item.Producer.pdcName</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="add">
+                                            <a class="btn btn-success  " href="@Url.Action("ThemVaoGio", "GioHang", new { SanPhamID = item.proID })"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--image khuyến mãi-->
+      
+        <!--End Image khuyến mãi-->
+        <div class="spec " style="margin-top:30px;">
+            <h3><a href="@Url.Action("ProductsBestDiscount", "Products", new { title="Thời trang giảm giá cao nhất", page=1 })" style="text-decoration:none;">Thời trang giảm giá cao nhất</a></h3>
+            @*<div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>*@
+        </div>
+        <div class="tab-head ">
+            <div class=" tab-content tab-content-t ">
+                <div class="tab-pane active text-style" id="tab1">
+                    <div class=" con-w3l">
+                        @{int qtt1 = 0;}
+                        @foreach (var item in db.Products.SqlQuery("SELECT * FROM Products ORDER BY proDiscount DESC"))
+                        {
+                            qtt1++;
+                            if (qtt1 > 4)
+                            {
+                                break;
+                            }
+                            int newPrice = Int32.Parse(item.proPrice) - ((Int32.Parse(item.proPrice) * item.proDiscount.Value) / 100);
+                            <div class="col-md-3 m-wthree" style="margin-bottom:30px;">
+                                <div class="col-m">
+                                    <a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })" class="offer-img">
+                                        <img src="@item.proPhoto" width="150" height="150" alt="@item.proPhoto" style="position:absolute;width:100%;height:auto;">
+                                        @if (Int32.Parse(item.proPrice) > newPrice)
+                                        {
+                                            <div class="offer"><p><span>Giảm @item.proDiscount %</span></p></div>
+                                        }
+                                        else
+                                        {
+
+                                        }
+                                    </a>
+                                    <div class="mid-1" style="padding:24em 0 0;">
+                                        <div class="women">
+                                            @if (item.proName.Length > 20)
+                                            {
+                                                <h6><a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })" data-toggle="tooltip" title="@item.proName">@item.proName.Substring(0, 19) . . .</a></h6>
+                                            }
+                                            else
+                                            {
+                                                <h6><a href="@Url.Action("ProductDetail", "Products", new { id=item.proID })">@item.proName</a></h6>
+                                            }
+                                        </div>
+                                        (Size: @item.proSize)
+                                        <div class="mid-2">
+                                            <p><label>@proDAO.formatNumber(item.proPrice) VNĐ</label><em class="item_price">@proDAO.formatNumber(newPrice.ToString()) VNĐ</em></p>
+                                            <div class="clearfix"></div>
+                                            @*<div class="block">
+        @if (db.Rates.Find(item.proID) != null)
+        {
+            for (int i = 0; i < db.Rates.Find(item.proID).rateStar; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:rgb(255, 172, 0);" />
+            }
+            for (int i = 0; i < 5 - db.Rates.Find(item.proID).rateStar; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:#b0b0b0" />
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                <img src="~/Image/star.png" style="background-color:#b0b0b0" />
+            }
+        }
+    </div>*@
+                                            <div>
+                                                <a href="#"><img src="@item.Producer.pdcPhoto" width="20" height="20" /> @item.Producer.pdcName</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="add">
+                                            <a class="btn btn-success" href="@Url.Action("ThemVaoGio", "GioHang", new { SanPhamID = item.proID })"> <span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+<style>
+    .hoverSlideHome img {
+        -webkit-transform: scale(0.8); /*Webkit: Scale down image to 0.8x original size*/
+        -moz-transform: scale(0.8); /*Mozilla scale version*/
+        -o-transform: scale(0.8); /*Opera scale version*/
+        -webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+        -moz-transition-duration: 0.5s; /*Mozilla duration version*/
+        -o-transition-duration: 0.5s; /*Opera duration version*/
+        opacity: 0.9; /*initial opacity of images*/
+        margin: 0 10px 5px 0; /*margin between images*/
+    }
+        .hoverSlideHome img:hover {
+            -webkit-transform: scale(1.1); /*Webkit: Scale up image to 1.2x original size*/
+            -moz-transform: scale(1.1); /*Mozilla scale version*/
+            -o-transform: scale(1.1); /*Opera scale version*/
+            box-shadow: 0px 0px 30px gray; /*CSS3 shadow: 30px blurred shadow all around image*/
+            -webkit-box-shadow: 0px 0px 30px gray; /*Safari shadow version*/
+            -moz-box-shadow: 0px 0px 30px gray; /*Mozilla shadow version*/
+            opacity: 1;
+        }
+    .toasang {
+
+        margin: 20px;
+
+        position: relative;
+
+        display: block;
+
+        width: 80px; height: 80px;
+
+        text-align: center;
+
+        border-radius: 100%;
+
+        font: 700 30px/80px 'arial';
+
+        text-decoration: none;
+
+        color: #313131;
+
+        z-index: 1;
+
+        -webkit-transition: all .3s ease;
+
+        -moz-transition: all .3s ease;
+
+        -ms-transition: all .3s ease;
+
+        -o-transition: all .3s ease;
+
+        transition: all .3s ease;
+
+    }
+
+    .toasang:after {
+
+        content: '';
+
+        display: block;
+
+        position: absolute;
+
+        width: 100%; height: 100%;
+
+        margin: auto;
+
+        top: 0; right: 0; bottom: 0; left: 0;
+
+        border-radius: 100%;
+
+        background: #dfdfdf;
+
+        z-index: -1;
+
+        -webkit-transition: all .3s ease;
+
+        -moz-transition: all .3s ease;
+
+        -ms-transition: all .3s ease;
+
+        -o-transition: all .3s ease;
+
+        transition: all .3s ease;
+
+    }
+
+    .toasang:hover {
+
+        color: #fff;
+
+        background: #399;
+
+    }
+
+    .toasang:hover:after {
+
+        background: transparent;
+
+        -webkit-transform: scale(1.6);
+
+        -moz-transform: scale(1.6);
+
+        -ms-transform: scale(1.6);
+
+        -o-transform: scale(1.6);
+
+        transform: scale(1.6);
+
+    }
+    .btn btn-success{
+        background-color: yellow;
+    }
+</style>

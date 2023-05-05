@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ShopProject.Areas.Administrator.Models.ProductType>
+
+@{
+    ViewBag.Title = "Loại sản phẩm";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Loại sản phẩm</h2>
+<div class="text-warning">
+    @ViewBag.TypeError
+</div>
+<hr />
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "ProductType")" role="button">Tạo loại sản phẩm mới</a>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên danh mục</th>
+                            <th>Tên loại sản phẩm</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.typeID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Category.cateName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.typeName)</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "ProductType", new { id = item.typeID })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá loại sản phẩm này?')" href="@Url.Action("Delete", "ProductType", new { id = item.typeID })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ShopProject.Areas.Administrator.Models.Producer>
+
+@{
+    ViewBag.Title = "Hãng sản xuất";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hãng sản xuất</h2>
+<div class="text-warning">
+    @ViewBag.PdcError
+</div>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "Producer")" role="button">Tạo hãng sản xuất mới</a>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên hãng</th>
+                            <th>SĐT</th>
+                            <th>Email</th>
+                            <th>Địa chỉ</th>
+                            <th>Mô tả</th>
+                            <th>Hình ảnh</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.pdcID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.pdcName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.pdcPhone)</td>
+                                <td>@Html.DisplayFor(modelItem => item.pdcEmail)</td>
+                                <td>@Html.DisplayFor(modelItem => item.pdcAddress)</td>
+                                <td>@Html.DisplayFor(modelItem => item.pdcInfo)</td>
+                                <td><img src="@item.pdcPhoto" width="50" height="50" /></td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Producer", new { id = item.pdcID })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá hãng này?')" href="@Url.Action("Delete", "Producer", new { id = item.pdcID })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
